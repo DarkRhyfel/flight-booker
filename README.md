@@ -1,24 +1,15 @@
-# README
+# Flight Booker
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Ruby on Rails Project
 
-Things you may want to cover:
+### Objectives
 
-* Ruby version
+- Implement a database to hold information about airports and flights.
+- Design complex forms to handle data for different models.
+- Learn how to instatiate and collect the data from this forms.
 
-* System dependencies
+### Technologies
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Ruby on Rails.
+- HTML5, CSS.
+- SQLite.
