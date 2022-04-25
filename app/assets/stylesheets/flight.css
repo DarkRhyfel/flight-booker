@@ -1,0 +1,36 @@
+.flight-container {
+    grid-column: 2 / 3;
+    padding: 2vh 2vw;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.double-drop-field {
+    width: 100%;
+    margin: 1vh 0;
+    display: grid;
+    grid-template: 1fr 1fr / 1fr 1fr;
+    gap: 1vh 5vw
+}
+
+.drop-field {
+    width: 100%;
+    margin: 1vh 0;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    row-gap: 1vh;
+}
+
+.actions {
+    width: 100%;
+    padding: 2vh 0;
+    display: grid;
+}
+
+.submit-button {
+    background-color: #1d3557;
+    padding: 1vh 0;
+    border: none;
+    border-radius: 10px;
+    color: white;
+}

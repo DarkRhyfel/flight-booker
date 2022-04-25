@@ -1,0 +1,22 @@
+<div class="flight-container">
+    <p class="title">Flight Scheduler</p>
+    <%= form_with url: search_flights_path, method: :get do |f| %>
+        <div class="double-drop-field">
+            <%= f.label :departure_airport_id %>
+            <%= f.label :arrive_airport_id %>
+            <%= f.collection_select :departure_airport_id, @airports, :id, :code %>
+            <%= f.collection_select :arrive_airport_id, @airports, :id, :code %>
+        </div>
+        <div class="drop-field">
+            <%= f.label :passengers %>
+            <%= f.select :passengers, [1, 2, 3, 4] %>
+        </div>
+        <div class="drop-field">
+            <%= f.label :flight_date %>
+            <%= f.select :flight_date, @flight_dates %>
+        </div>
+        <div class="actions">
+            <%= f.submit 'Search flights', class: 'submit-button' %>
+        </div>
+    <% end %>
+</div>
