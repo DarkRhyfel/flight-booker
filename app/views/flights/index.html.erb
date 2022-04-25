@@ -1,22 +1,46 @@
-<div class="flight-container">
-    <p class="title">Flight Scheduler</p>
-    <%= form_with url: search_flights_path, method: :get do |f| %>
-        <div class="double-drop-field">
-            <%= f.label :departure_airport_id %>
-            <%= f.label :arrive_airport_id %>
-            <%= f.collection_select :departure_airport_id, @airports, :id, :code %>
-            <%= f.collection_select :arrive_airport_id, @airports, :id, :code %>
-        </div>
-        <div class="drop-field">
-            <%= f.label :passengers %>
-            <%= f.select :passengers, [1, 2, 3, 4] %>
-        </div>
-        <div class="drop-field">
-            <%= f.label :flight_date %>
-            <%= f.select :flight_date, @flight_dates %>
-        </div>
-        <div class="actions">
-            <%= f.submit 'Search flights', class: 'submit-button' %>
-        </div>
-    <% end %>
+<div class="index-container">
+    <div class="flight-container">
+        <p class="title">Flight Scheduler</p>
+        <%= form_with url: search_flights_path, method: :get do |f| %>
+            <div class="double-drop-field">
+                <%= f.label :departure_airport_id %>
+                <%= f.label :arrive_airport_id %>
+                <%= f.collection_select :departure_airport_id, @airports, :id, :code %>
+                <%= f.collection_select :arrive_airport_id, @airports, :id, :code %>
+            </div>
+            <div class="drop-field">
+                <%= f.label :passengers %>
+                <%= f.select :passengers, [1, 2, 3, 4] %>
+            </div>
+            <div class="drop-field">
+                <%= f.label :flight_date %>
+                <%= f.select :flight_date, @flight_dates %>
+            </div>
+            <div class="actions">
+                <%= f.submit 'Search flights', class: 'submit-button' %>
+            </div>
+        <% end %>
+    </div>
+    <div class="available-container">
+        <% unless @available_flights.nil? %>
+            <% if @available_flights.empty? %>
+                <p class="message">No flights found.</p>
+            <% else %>
+                <div class="available">
+                    <p class="title">Available Flights</p>
+                    <%= form_with url: search_flights_path do |f| %>
+                        <div class="radio-field">
+                            <%= f.collection_radio_buttons :selected_id, @available_flights, :id, :flight_name %>
+                        </div>
+                        <%= f.hidden_field :passengers, value: params[:passengers] %>
+                        <div class="actions">
+                            <%= f.submit 'Book Flight', class: 'submit-button' %>
+                        </div>
+                    <% end %>
+                </div>
+                
+            <% end %>
+        <% end %>
+    </div>
 </div>
+

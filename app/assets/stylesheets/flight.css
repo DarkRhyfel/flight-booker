@@ -1,5 +1,15 @@
-.flight-container {
+.index-container {
     grid-column: 2 / 3;
+}
+
+.flight-container {
+    padding: 2vh 2vw;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.available-container {
+    margin: 3vh 0;
     padding: 2vh 2vw;
     border: 2px solid black;
     border-radius: 10px;
@@ -19,6 +29,14 @@
     display: grid;
     grid-template-rows: 1fr 1fr;
     row-gap: 1vh;
+}
+
+.radio-field {
+    width: 100%;
+    margin: 1vh 0;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 1vw;
 }
 
 .actions {
