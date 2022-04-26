@@ -1,0 +1,27 @@
+<div class="index-container">
+    <div class="flight-container">
+        <p class="title">Booking Information</p>
+        <%= form_with model: @booking do |f| %>
+            <%= label_tag :flight_id, @selected_flight.flight_name %>
+            <%= hidden_field_tag :flight_id, @selected_flight.id %>
+            <div class="field">
+                <%= f.label :passanger_count, 'Passengers' %>
+                <%= f.text_field :passanger_count, readonly: true %>
+            </div>
+            <p class="title">Passenger Info</p>
+            <%= f.fields_for :passengers do |p_f| %>
+                <div class="field">
+                    <%= p_f.label :name %>
+                    <%= p_f.text_field :name %>
+                </div>
+                <div class="field">
+                    <%= p_f.label :email %>
+                    <%= p_f.email_field :email %>
+                </div>
+            <% end %>
+            <div class="actions">
+                <%= f.submit 'Submit Booking', class: 'submit-button' %>
+            </div>
+        <% end %>
+    </div>
+</div>

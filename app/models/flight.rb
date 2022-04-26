@@ -10,7 +10,7 @@ class Flight < ApplicationRecord
   scope :flight_dates, -> { select(:start).distinct.all.map { |date| date.start.strftime('%d/%m/%Y') }.uniq }
 
   def flight_name
-    "#{departure_airport.code} - #{arrival_airport.code}: #{start.strftime('%d/%m/%Y %H:%M:%S')}
+    "#{departure_airport.code} - #{arrival_airport.code}: #{start.localtime.strftime('%d/%m/%Y %H:%M:%S')}
      (#{duration} #{'hour'.pluralize(duration)})"
   end
 end

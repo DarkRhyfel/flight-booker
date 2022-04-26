@@ -27,7 +27,42 @@ main {
     padding: 5vh 0;
 }
 
+table,
+th,
+td {
+    border: 1px solid black;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 1vh 1vw;
+}
+
+th {
+    background-color: #a8dadc;
+    color: white;
+}
+
+a {
+    font-size: 1rem;
+}
+
 .title {
     font-size: 2rem;
     margin: 3vh 0;
+}
+
+.subtitle {
+    font-size: 1rem;
+    font-weight: bold;
+    margin: 1vh 0;
+}
+
+.normal {
+    margin: 0;
 }

@@ -21,16 +21,16 @@
             </div>
         <% end %>
     </div>
-    <div class="available-container">
-        <% unless @available_flights.nil? %>
+    <% unless @available_flights.nil? %>
+        <div class="available-container"> 
             <% if @available_flights.empty? %>
                 <p class="message">No flights found.</p>
             <% else %>
                 <div class="available">
                     <p class="title">Available Flights</p>
-                    <%= form_with url: search_flights_path do |f| %>
+                    <%= form_with url: new_booking_path, method: :get do |f| %>
                         <div class="radio-field">
-                            <%= f.collection_radio_buttons :selected_id, @available_flights, :id, :flight_name %>
+                            <%= f.collection_radio_buttons :selected_id, @available_flights, :id, :flight_name, include_hidden: false %>
                         </div>
                         <%= f.hidden_field :passengers, value: params[:passengers] %>
                         <div class="actions">
@@ -39,8 +39,8 @@
                     <% end %>
                 </div>
                 
-            <% end %>
-        <% end %>
-    </div>
+            <% end %>     
+        </div>
+    <% end %>
 </div>
 
