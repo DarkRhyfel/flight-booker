@@ -8,11 +8,16 @@ class BookingsController < ApplicationController
     params[:passengers].to_i.times { @booking.passengers.build }
   end
 
-  def create
+  def create # rubocop:disable Metrics/MethodLength
     selected_flight = Flight.find(params[:flight_id])
     @booking = selected_flight.bookings.build(booking_params)
 
     if @booking.save
+      @booking.passengers.each do |passenger|
+        PassengerMailer.with(passenger: passenger, flight: selected_flight)
+                       .booking_confirmation.deliver_later
+      end
+
       redirect_to @booking
     else
       render :new, status: :unprocessable_entity
